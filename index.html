@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 Harsh Prediction 👑</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        /* Name Animation */
+        .animated-name {
+            font-size: 1,2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: fade-in-out 3s infinite;
+        }
+        @media (max-width:700px) {
+            .animated-name {
+            font-size: 1rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: fade-in-out 3s infinite;
+        }
+        }
+
+        @keyframes fade-in-out {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Countdown Loader Animation */
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 4px solid transparent;
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Background Overlay */
+        .minabox::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.83);
+            z-index: -1;
+        }
+
+        /* Responsive Typography */
+        .responsive-text {
+            font-size: calc(1rem + 1vw);
+        }
+        .loader-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border: 10px solid #444;
+      border-radius: 50%;
+      position: absolute;
+      animation: rotate 30s linear forwards;
+      border-top-color: rgb(6, 155, 166);
+    }
+
+    .countdown {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .animated-button{
+        animation: btnclr 1.3s ease-in infinite;
+    }
+    @keyframes btnclr {
+        0%,100%{
+background-color: rgb(255, 0, 0);
+transform: scale(.9);
+        }50%{
+background-color: rgb(250, 43, 43);
+transform: scale(1.1);
+        }
+    }
+    </style>
+</head>
+
+<body class="bg-cover bg-center bg-no-repeat bg-[url('back.jpg')] text-white flex items-center justify-center min-h-screen minabox">
+
+    <div class="text-center p-8 rounded-xl shadow-lg w-full max-w-lg">
+        <h1 class="text-center text-xl font-bold uppercase" >Prediction King of telegram </h1>
+        <h4 class="font-bold mb-6 text-lg">👑Harsh Prediction 👑</h4>
+        <div class="grid place-items-center">
+        <img src="logo.jpg" alt="" class="w-24 h-24 ">
+    </div>
+        <h2 class="text-xl font-bold mb-4 mt-2 font-serif responsive-text">  NO.1 TIPPER OF INDIA 💯</h2>
+
+    <div class="grid place-items-center">
+        <div class="loader-container">
+          <div class="circle"></div>
+          <div class="countdown" id="countdown">30</div>
+        </div>
+      </div>
+    
+        <!-- Buttons -->
+          <div class="grid place-items-center">
+            <h1 class=" py-1 px-4 rounded text-yellow-400 font-bold uppercase text-3xl mt-2" style="background-color: rgb(6, 155, 166);">Hurry Up 👇</h1>
+          </div>
+        <!-- Additional Info -->
+        <button onclick="redirectToLink()" class="animated-button py-3 px-4 bg-transparent border-b-4 border-white rounded-sm text-lg my-6 hover:bg-blue-600 transition-all duration-200 " style="box-shadow: 0px 0px 1px 3px rgb(255, 0, 0);" >
+            <i class="fab fa-telegram mr-2"></i> <span class="font-bold"> JOIN <u class="text-yellow-300" style="text-shadow: 1px 1px black; text-transform: uppercase; ">Harsh Prediction</u> CHANNEL</span>
+        </button>
+    
+        <br>
+        <h3 class="text-lg mb-2 font-serif font-bold">✔️ TOSS/MATCH/WINNING ✔️</h3>
+        <h3 class="text-lg mb-3 font-serif font-bold">🤝 BIGGEST TIPPER  🤝</h3>
+        </div>
+    <!-- <footer style="position: absolute; bottom: 0px; background-color: rgb(255, 255, 255); width: 100%; ; ">
+        <div class="" style="display: flex; gap: 10px; place-content: center; place-items: center;">
+            <span style="color:black;" > Advertisment By</span> <strong> <a href="https://t.me/digitalranjan24" style="color: red;" target="_blank" >DigitalRanjan</a> </strong>
+        </div>
+    </footer> -->
+    <script>
+        // Countdown Timer Functionality
+        let loader1=document.getElementById('loader1');
+        function countdown() {
+            let seconds = 30;
+            const countdownElement = document.getElementById("countdown");
+            countdownElement.innerText = seconds;
+
+            const timer = setInterval(function () {
+                seconds--;
+                countdownElement.innerText = seconds;
+                if(seconds==0){
+                    seconds=30;
+                }
+               
+            }, 1000);
+        }
+
+        // Redirect to Telegram link
+        function redirectToLink() {
+            window.location.href = "https://t.me/+NbawUCfFPCczYWQ9";
+        }
+
+        // Start the countdown on page load
+        window.onload = countdown;
+    </script>
+     <script>
+        
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+            
+        });
+        
+        
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && e.key === "u") {
+                e.preventDefault();
+                
+            }
+        });
+        
+        
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+                e.preventDefault();
+                
+            }
+        });
+        
+            </script>
+
+</body>
+
+</html>
